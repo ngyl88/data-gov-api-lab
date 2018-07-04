@@ -14,7 +14,9 @@ router.get("/", (req, res, next) => {
 router.get("/", (req, res) => {
   const filteredKindergarten = Object.keys(req.query).reduce(
     (accumulator, queryKey) => {
-      console.log(`currentKey: ${queryKey}, req.query[queryKey] ${req.query[queryKey]}, filtered from ${accumulator.length} data`);
+      // console.log(`currentKey: ${queryKey}, req.query[queryKey] ${req.query[queryKey]}, 
+      //   filtered from ${accumulator.length} data
+      // `);
       return accumulator.filter(
         kindergarten => kindergarten[queryKey] === req.query[queryKey]
       );

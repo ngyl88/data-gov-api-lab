@@ -71,15 +71,17 @@ describe("GET", () => {
     const response = await request(app).get(`/kindergarten?centre_code=EB0003`);
     expect(response.status).toEqual(200);
     expect(response.body).toEqual(expectedReturn);
-});
+  });
 
-it('GET /kindergarten with invalid query key will return an empty list', async () => {
-    const response = await request(app).get("/kindergarten?centre_code=EB0003&key=value");
+  it("GET /kindergarten with invalid query key should return an empty list", async () => {
+    const response = await request(app).get(
+      "/kindergarten?centre_code=EB0003&key=value"
+    );
     expect(response.status).toEqual(200);
     expect(response.body).toEqual([]);
   });
 
-  it("GET /kindergarten/list return the list of seeded data", async () => {
+  it("GET /kindergarten/list should return the list of seeded data", async () => {
     const response = await request(app).get("/kindergarten/list");
     expect(response.status).toEqual(200);
     expect(response.body).toEqual(seedData);
