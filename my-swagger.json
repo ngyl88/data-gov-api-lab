@@ -68,15 +68,36 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "example": {
+                    "type": "object",
+                    "properties": {
+                      "year": { "type": "string" },
+                      "ura_planning_region": { "type": "string" },
+                      "residential_status": { "type": "string" },
+                      "number_of_solar_pv_installations": { "type": "string" },
+                      "installed_capacity": { "type": "string" },
+                      "percentage_share_of_total_installed_capacity": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "example": [
+                    {
                       "year": "2008",
                       "ura_planning_region": "Overall",
-                      "residential_status": "Residential",
+                      "residential_status": "Non-Residential",
                       "number_of_solar_pv_installations": "24",
                       "installed_capacity": "245.7",
                       "percentage_share_of_total_installed_capacity": "88.2"
+                    },
+                    {
+                      "year": "2008",
+                      "ura_planning_region": "Overall",
+                      "residential_status": "Residential",
+                      "number_of_solar_pv_installations": "6",
+                      "installed_capacity": "33",
+                      "percentage_share_of_total_installed_capacity": "11.8"
                     }
-                  }
+                  ]
                 }
               }
             }
@@ -186,6 +207,20 @@
       "get": {
         "summary": "Query kindergarten incidental charges data",
         "tags": ["kindergarten"],
+        "parameters": [
+          {
+            "name": "frequency",
+            "in": "query",
+            "description": "The frequency of the incidental charges",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "Ad-hoc",
+                "Anually"
+              ]
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "List of resource objects",
