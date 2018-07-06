@@ -213,11 +213,11 @@
             "in": "query",
             "description": "The frequency of the incidental charges",
             "schema": {
-              "type": "string",
-              "enum": [
-                "Ad-hoc",
-                "Anually"
-              ]
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": ["Ad-hoc", "Anually"]
+              }
             }
           }
         ],
